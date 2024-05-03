@@ -1,0 +1,19 @@
+5/2/2024 10:05 pm
+~progress~
+- implemented my very first web scraper!! very simple just grabbing quotes from a page but 
+still i feel pretty proud of myself
+- i can now successfully scrape one (1) page of data from ao3!!!! mwahahaha i feel very powerful, 
+definitely got a *lot* of helpful from the medium article (thank you emily <3) + need to figure out
+regex / DOMs(?), but overall very cool to have officially Scraped The AO3 (TM) >:D 
+
+~future plans~
+- figure out how to scrape the text of the work itself completely + any other helpful info
+    - hopefully this doesn't take a really long time D: 
+- figure out how to scrape the entirety of enhypen ao3 fic-land xD
+    - make sure i am scraping page by page to not lose progress 
+    - figure out how to create/store output csv in proper location
+    - currently thinking of having one file which figures out the # of pages, goes through each page
+      and incrementally updates a csv file [in case it crashes]
+    - another file stores the actual scraper which gets called at each step (2)
+- after that?? analysis?????? :D :DD :DDD 
+- hehe this is so excited :3 
