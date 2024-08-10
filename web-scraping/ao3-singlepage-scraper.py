@@ -4,6 +4,12 @@ from bs4 import BeautifulSoup
 import requests
 import re
 import pandas as pd
+import time
+from datetime import datetime
+
+
+# Record the start time
+start_time = time.time()
 
 # Setting up our parser
 page = requests.get("https://archiveofourown.org/tags/ENHYPEN%20(Band)/works")
@@ -78,6 +84,8 @@ for work in works:
     bookmarks_num = get_stat(stats, "bookmarks")
     hits_num = get_stat(stats, "hits")
 
+    # Get the detailed fic information (from when you actually open the fic)
+
     works_dict.append({"title": title, "author": author, "id": work_id, "date_updated": date_updated, 
                        "rating": rating, "pairing_type": pairing_type, "pairings": pairings, "fandoms": fandoms, 
                        "warnings": warnings, "work_status": work_status, "fandoms": fandoms, "characters": characters, 
@@ -85,7 +93,20 @@ for work in works:
                        "coments_num": comments_num, "kudos_num": kudos_num, "bookmarks_num": bookmarks_num, "hits_num": hits_num})
     
 quotes_df = pd.DataFrame(works_dict)
-quotes_df.to_csv('enhypen_ao3_works.csv',index=None)
+timestamp = datetime.now().strftime('%Y.%m.%d')
+filename = 'results\enhypen_ao3_works' + timestamp + '.csv'
+quotes_df.to_csv(filename,index=None)
+
+# Record the end time
+end_time = time.time()
+
+# Calculate the elapsed time
+elapsed_time = end_time - start_time
+
+# Print the elapsed time
+print(f"Total time taken: {elapsed_time:.2f} seconds")
+print(f"Saved to: {filename}")
+print("Done!")
 
 
     
